@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  iou:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+      target: prod
+    environment:
+      - DECIMAL_DIGITS=3
+    ports:
+      - 8000:8000
+  test-iou:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+      target: test
+    environment:
+      - DECIMAL_DIGITS=3
