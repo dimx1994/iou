@@ -2,20 +2,20 @@
 
 ## Description
 
-Web service provides API to calculate Intersection Over Union https://johfischer.com/2021/11/04/intersection-over-union-iou/
+The web service provides an API for calculating Intersection Over https://johfischer.com/2021/11/04/intersection-over-union-iou/
 
 ## Usage
 
 **Requirements:**
-Application requires docker, docker-compose, python 3.9 to be installed.
+The application requires docker, docker-compose, python 3.9 to be installed.
 
-To prepare local development and install dev requirements run for the first time:
+To prepare local development and install dev requirements, run for the first time:
 
 ```bash
 make prepare-local-dev
 ```
 
-Then you could run linters, tests and prettify code:
+Then you can run linters, tests and prettify code:
 
 ```bash
 make pretty
@@ -29,7 +29,7 @@ To run server locally run:
 make run
 ```
 
-To build/run tests in docker you could run:
+To build/run tests in docker you can run:
 
 ```bash
 make docker-build-test
@@ -37,7 +37,7 @@ make docker-lint
 make docker-run-test
 ```
 
-To build/run service in docker you could run:
+To build/run service in docker you can run:
 
 ```bash
 make docker-build
@@ -46,7 +46,7 @@ make docker-run
 
 **API:**
 
-The application has single endpoint `/intersection-over-union`, you could use swagger 
+The application has single endpoint `/intersection-over-union`, you can use swagger 
 at `http://0.0.0.0:8000/` or curl:
 
 ```bash
@@ -76,10 +76,10 @@ Response:
 }
 ```
 
-In case of incorrect values will be provided in the content(incorrect field names of left > right) `422` error will be returned
+In case of incorrect values are provided in the content(incorrect field names of left > right), a `422` error will be returned
 
-You could configure number of decimal digits in `DECIMAL_DIGITS` env in `docker-compose.yaml`. 
-Also you could configure some gunicorn options from `gunicorn_config.py`
+You can configure number of decimal digits using `DECIMAL_DIGITS` env in `docker-compose.yaml`. 
+Also you can configure some gunicorn options from `gunicorn_config.py`
 
 ## TODOs
 
@@ -88,7 +88,7 @@ Also you could configure some gunicorn options from `gunicorn_config.py`
 #### 2. To set up CI/CD you should:
 
 1. add docker pushing and tagging functionality to `Makefile`
-2. then you could write CI pipeline to execute sequentially(for example in Gitlab CI you could use docker-in-docker) the following steps:
+2. then you can write CI pipeline to execute sequentially(for example in Gitlab CI you can use docker-in-docker) the following steps:
 
 ```bash
 make docker-build-test
@@ -103,7 +103,7 @@ and tag using something like commit id or version number
 make docker-push
 ```
 
-Then if you deploy to Kubernetes, then you could write pipelines to deploy to staging/prod environments. 
+Then, if you're deploying to Kubernetes, you can write pipelines to deploy to staging/prod environments. 
 These pipelines should create all needed resources in Kubernetes(or update the docker tag you got in the previous step to the Deployment):
 Deployments, Ingresses, Secrets, etc.
 
