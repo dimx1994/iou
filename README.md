@@ -103,7 +103,7 @@ and tag using something like commit id or version number
 make docker-push
 ```
 
-Then if you deploy to kubernetes, then you could write pipelines to deploy to staging/prod environments. 
-These pipelines should create all needed resources in kubernetes(or update docker tag in deployment which you get in previous step):
-deployments, ingresses, secrets, etc.
+Then if you deploy to Kubernetes, then you could write pipelines to deploy to staging/prod environments. 
+These pipelines should create all needed resources in Kubernetes(or update the docker tag you got in the previous step to the Deployment):
+Deployments, Ingresses, Secrets, etc.
 
