@@ -8,13 +8,13 @@ class Box(BaseModel):
     bottom: float  # The Y coordinate of the bottom of the rectangle
 
     @validator('right')
-    def right_more_left(cls, v, values, **kwargs):
+    def right_more_left(cls, v, values, **kwargs):  # pylint: disable=unused-argument
         if v < values['left']:
             raise ValueError('right should be greater than left')
         return v
 
     @validator('bottom')
-    def bottom_more_top(cls, v, values, **kwargs):
+    def bottom_more_top(cls, v, values, **kwargs):  # pylint: disable=unused-argument
         if v < values['top']:
             raise ValueError('bottom should be greater than top')
         return v
@@ -27,3 +27,16 @@ class IOUResponse(BaseModel):
 class IOURequest(BaseModel):
     predicted: Box
     ground_truth: Box
+
+    class Config:
+        schema_extra = {
+            'example': {
+                'predicted': {'left': 4.5, 'top': 3.0, 'right': 11.5, 'bottom': 10.0},
+                'ground_truth': {
+                    'left': 8.5,
+                    'top': 7.0,
+                    'right': 14.5,
+                    'bottom': 13.0,
+                },
+            }
+        }

@@ -1,7 +1,9 @@
 from app.models import Box
 
 
-def compute_iou(bbox1: Box, bbox2: Box, decimal_digits: int) -> float:
+def compute_iou(  # pylint: disable=too-many-locals
+    bbox1: Box, bbox2: Box, decimal_digits: int
+) -> float:
     x1, y1 = bbox1.left, bbox1.top
     w1 = bbox1.right - bbox1.left
     h1 = bbox1.bottom - bbox1.top
@@ -31,6 +33,6 @@ def compute_iou(bbox1: Box, bbox2: Box, decimal_digits: int) -> float:
 
     if inter_w <= 0 or inter_h <= 0:
         return 0.0
-    else:
-        inter_area = inter_w * inter_h
-        return round(inter_area / (area1 + area2 - inter_area), decimal_digits)
+
+    inter_area = inter_w * inter_h
+    return round(inter_area / (area1 + area2 - inter_area), decimal_digits)
